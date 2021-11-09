@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+
 void main() {
   runApp(MyApp());
 }
@@ -65,8 +66,9 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Text(
             'Hey there',
             style: TextStyle(
-              fontSize: 21,
+              fontSize: 24,
               color: textcolor,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
