@@ -30,12 +30,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final Random random = Random();
-  Color color = Colors.white;
-  Color textcolor = Colors.black;
+  Color backgroundColor = Colors.white;
+  Color textColor = Colors.black;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: color,
+      backgroundColor: backgroundColor,
       appBar: AppBar(
         title: Text("Test Task"),
         centerTitle: true,
@@ -44,35 +44,37 @@ class _MyHomePageState extends State<MyHomePage> {
         behavior: HitTestBehavior.opaque,
         onTap: () {
           setState(() {
-            color = Color.fromRGBO(
-              random.nextInt(256),
-              random.nextInt(256),
-              random.nextInt(256),
-              random.nextDouble(),
-            );
+            backgroundColor = generateRandomColor();
           });
+            
         },
         onDoubleTap: () {
           setState(() {
-            textcolor = Color.fromRGBO(
-              random.nextInt(256),
-              random.nextInt(256),
-              random.nextInt(256),
-              random.nextDouble(),
-            );
+            textColor = generateRandomColor();
           });
+          //randomRGBO();
         },
         child: Center(
           child: Text(
             'Hey there',
             style: TextStyle(
               fontSize: 24,
-              color: textcolor,
+              color: textColor,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
       ),
     );
+  }
+
+  generateRandomColor() {
+    dynamic color = Color.fromRGBO(
+      random.nextInt(256),
+      random.nextInt(256),
+      random.nextInt(256),
+      random.nextDouble(),
+    );
+    return color;
   }
 }
